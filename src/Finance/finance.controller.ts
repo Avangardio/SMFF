@@ -36,6 +36,7 @@ export class FinanceController {
         this.addStream(subject, observer, request.body['email']);
 
         //Возвращаем обсервабл для отправки при получении данных
+        // !!! Можно пайп вешать на сабжект см https://www.learnrxjs.io/learn-rxjs/subjects/replaysubject
         return observer.pipe(map(({event, data}) => ({
             id: `my-user-email:${request.body['email']}`,
             data: `${data}`,
